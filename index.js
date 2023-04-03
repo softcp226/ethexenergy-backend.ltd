@@ -2,16 +2,22 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 require("dotenv").config();
-const cors=require("cors")
-app.use(cors())
-// app.use("/", express.static("html"));
+const cors = require("cors");
+app.use(cors());
 
-app.post("/",(req,res)=>res.status(200).json({error:false,message:req.body}))
+const helmet = require("helmet");
+app.use(helmet());
+const mongoSanitize = require("express-mongo-sanitize")
+app.use(mongoSanitize());
+
+app.post("/", (req, res) =>
+  res.status(200).json({ error: false, message: req.body }),
+);
 
 const fetch_investment_packages = require("./api/fetch_investment_program");
 app.use("/api/investment_packages/fetch", fetch_investment_packages);
-const fetch_last_10_withdrawals$deposit=require("./admin_api/fetch_last_10_withdrawal&deposit")
-app.use("/last_10_withdrawals&deposit",fetch_last_10_withdrawals$deposit);
+const fetch_last_10_withdrawals$deposit = require("./admin_api/fetch_last_10_withdrawal&deposit");
+app.use("/last_10_withdrawals&deposit", fetch_last_10_withdrawals$deposit);
 
 // app.use("/admin", express.static("admin"));
 const admin_login = require("./admin_api/login");
@@ -62,11 +68,8 @@ app.use("/api/admin/setting", admin_setting);
 const fetch_top_referral = require("./admin_api/fetch_top_referral");
 app.use("/api/admin/user/top_referral", fetch_top_referral);
 
-
 const fetch_referral = require("./api/fetch_referrals");
 app.use("/api/user/referral/fetch", fetch_referral);
-
-
 
 const login = require("./api/login");
 app.use("/api/user/login", login);
@@ -111,7 +114,5 @@ app.use("/api/user/password/reset", reset_password);
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`running on port ${port}`));
 // /api/user/transactions/fetch
-
-
 
 // /api/admin/investment_packages/add

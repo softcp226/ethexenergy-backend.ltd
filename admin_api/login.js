@@ -4,25 +4,28 @@ const genToken = require("../secure-admin-api/genToken");
 const Admin = require("../model/admin");
 const validate_admin = require("../validation/validate-login-admin");
 const compare_passsword = require("../admin-hash/compare_password");
+
 Router.post("/", async (req, res) => {
-  const request_isvalid = validate_admin(req.body);
-  if (request_isvalid != true)
-    return res.status(400).json({ error: true, errMessage: request_isvalid });
   try {
+    const request_isvalid = validate_admin(req.body);
+    if (request_isvalid != true)
+      return res.status(400).json({ error: true, errMessage: request_isvalid });
+
     const admin = await Admin.findOne({ user_name: req.body.user_name });
     if (!admin)
       return res.status(400).json({
         error: true,
-        errMessage: "invalid user name or password (mail does not exist)",
+        errMessage: "invalid user name or password ",
       });
+
     const password_match = await compare_passsword(
       req.body.password,
-      admin.password
+      admin.password,
     );
-    if (!password_match)
+    if (password_match != true)
       return res.status(400).json({
         error: true,
-        errMessage: "invalid user name or password (pass err)",
+        errMessage: "invalid user name or password",
       });
     const token = genToken(admin._id);
     res

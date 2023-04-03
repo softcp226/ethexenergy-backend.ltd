@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const validate_admin_login = (req) => {
   const schema = Joi.object({
-    user_name: Joi.string().required().max(1000),
+    user_name: Joi.string().required().max(100),
     password: Joi.string().required().max(1000),
   });
   const result = schema.validate({

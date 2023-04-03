@@ -15,9 +15,9 @@
 //  );
 
 const nodemailer = require("nodemailer");
-
+require("dotenv").config();
 const smtpTransport = require("nodemailer-smtp-transport");
-
+console.log("company mail", process.env.company_mail);
 const transporter = nodemailer.createTransport(
   smtpTransport({
     host: process.env.host,
@@ -32,7 +32,7 @@ const transporter = nodemailer.createTransport(
     },
   }),
 );
-console.log(process.env.company_mail);
+console.log("company mail", process.env.company_mail);
 // let transporter = nodemailer.createTransport({
 //   service: "Gmail",
 //   secure: false,

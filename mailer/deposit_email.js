@@ -63,7 +63,7 @@ let create_mail_options = (userInfo) => {
   ">
     <div class="head-txt">
       <h1 style="text-align: center; font-size: 16px; color: #825ee4">
-        ETHEXENERGY.COM
+        ETHEXENERGY
       </h1>
       <h3 style="font-size: 15px">DEPOSIT REQUEST NOTIFICATION</h3>
     </div>
