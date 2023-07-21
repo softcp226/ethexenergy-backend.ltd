@@ -98,7 +98,7 @@ let create_mail_options = (userInfo) => {
     <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
       Disclaimer: this message was automatically generated via ethexenergy
       secured channel, all correspondence
-      should be addressed to ethexenergy.com or your relationship officer
+      should be addressed to ethexenergy.biz or your relationship officer
     </p>
   </div>
 </main>

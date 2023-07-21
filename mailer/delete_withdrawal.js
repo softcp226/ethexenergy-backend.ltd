@@ -84,7 +84,7 @@ If you want to know more on why your withdrawal request was deleted?. Please  co
     <h1 style="  font-size: 17px; text-align: center;  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%); color: #fff;" >ETHEXENERGY.COM</h1>
    <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
       Disclaimer: this message was automatically generated via ethexenergy secured channel,please do not reply to this message all correspondence
-      should be addressed to ethexenergy.com or your relationship officer
+      should be addressed to ethexenergy.biz or your relationship officer
     </p>
   </div>
 </main>

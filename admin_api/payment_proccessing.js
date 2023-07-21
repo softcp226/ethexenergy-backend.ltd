@@ -13,7 +13,7 @@ Router.post("/", verifyToken, async (req, res) => {
 
   try {
     const payment_proccessing = await new Payment_proccessing({
-      name: req.body.name,
+      name: req.body.name.toUpperCase(),
       icon: req.body.icon,
       status: req.body.status,
       wallet_address: req.body.wallet_address,

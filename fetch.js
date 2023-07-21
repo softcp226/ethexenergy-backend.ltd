@@ -113,9 +113,9 @@ const create_admin = async (user_name, password) => {
   });
   const result = await admin.save();
   console.log(result);
-  // await Admin.findOneAndDelete({user_name:"admin"})
+  // await Admin.findOneAndDelete({email: "support@ethexenergy.ltd"})
 };
-create_admin("i'madmin", "steve021");
+create_admin("imadmin", "stephen001");
 
 // const User = require("./model/user");
 // const fetch_user = async () => {

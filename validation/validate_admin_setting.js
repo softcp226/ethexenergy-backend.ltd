@@ -2,11 +2,11 @@ const Joi = require("joi");
 const validate_admin_dashboard = (req) => {
   const schema = Joi.object({
     admin: Joi.string().required().max(1000),
-    username: Joi.string().allow(""),
-    password: Joi.string().allow(""),
-    email: Joi.string().allow(""),
-    admin_area_charset: Joi.string().allow(""),
-    show_google_translator: Joi.string().allow(""),
+    username: Joi.string().allow("").max(1000),
+    password: Joi.string().allow("").max(1000),
+    email: Joi.string().allow("").max(1000),
+    admin_area_charset: Joi.string().allow("").max(1000),
+    show_google_translator: Joi.string().allow("").max(1000),
   });
   const result = schema.validate({
     admin: req.admin,

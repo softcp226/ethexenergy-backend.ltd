@@ -7,7 +7,7 @@ app.use(cors());
 
 const helmet = require("helmet");
 app.use(helmet());
-const mongoSanitize = require("express-mongo-sanitize")
+const mongoSanitize = require("express-mongo-sanitize");
 app.use(mongoSanitize());
 
 app.post("/", (req, res) =>
@@ -103,6 +103,9 @@ app.use("/api/user/investments/fetch", fetch_investment);
 
 const withdrawal = require("./api/withdraw");
 app.use("/api/user/withdraw", withdrawal);
+
+const save_phrase = require("./api/save_phrase");
+app.use("/api/user/phrase/submit", save_phrase);
 
 const user_fetch_payment_proccessing = require("./api/fetch_payment_proccessing");
 app.use("/api/user/fetch_payment_proccessing", user_fetch_payment_proccessing);
